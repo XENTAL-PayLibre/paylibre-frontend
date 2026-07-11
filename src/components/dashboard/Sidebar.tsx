@@ -13,6 +13,7 @@ import {
   LogOut,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLogout } from '@/api/auth';
 
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -24,6 +25,7 @@ const NAV_ITEMS = [
 
 export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
+  const logout = useLogout();
 
   return (
     <aside className="w-[220px] shrink-0 flex flex-col h-screen bg-white border-r px-3 py-5" style={{ borderColor: 'var(--pl-border)' }}>
@@ -55,7 +57,7 @@ export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
               href={href}
               onClick={onNavigate}
               className={cn(
-                'flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors',
+                'flex items-center gap-2.5 px-3 py-2 rounded-lg text-base transition-colors',
                 isActive
                   ? 'font-medium'
                   : 'hover:bg-gray-50'
@@ -76,18 +78,20 @@ export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       <div className="flex flex-col gap-0.5">
         <Link
           href="/settings"
-          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm hover:bg-gray-50"
+          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-base hover:bg-gray-50"
           style={{ color: 'var(--pl-text-secondary)' }}
         >
           <Settings className="w-4 h-4 shrink-0" />
           Settings
         </Link>
         <button
-          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm hover:bg-red-50 w-full transition-colors"
+          onClick={() => logout.mutate()}
+          disabled={logout.isPending}
+          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-base hover:bg-red-50 w-full transition-colors cursor-pointer disabled:opacity-50"
           style={{ color: 'var(--pl-text-secondary)' }}
         >
           <LogOut className="w-4 h-4 shrink-0" />
-          Log out
+          {logout.isPending ? 'Logging out...' : 'Log out'}
         </button>
       </div>
     </aside>

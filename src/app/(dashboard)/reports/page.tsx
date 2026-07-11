@@ -1,5 +1,5 @@
 import { Download } from 'lucide-react';
-import StatCard from '@/components/StatCard';
+import StatCard from '@/components/dashboard/StatCard';
 import { DollarSign, Users, TrendingUp, AlertCircle } from 'lucide-react';
 
 const CHART_DATA = [
