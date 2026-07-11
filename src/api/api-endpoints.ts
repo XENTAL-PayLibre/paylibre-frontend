@@ -13,6 +13,11 @@ export const API_ENDPOINTS = {
     VERIFY_EMAIL: '/auth/verify-email',
     ME: '/auth/me',
   },
+  SCHOOLS: {
+    CURRENT: '/schools/current',
+    SETTLEMENT: '/schools/settlement',
+  },
+  BANKS: '/banks',
   // Add other resource endpoints here as paylibre evolves, e.g.:
   // STUDENTS: {
   //   BASE: '/students',

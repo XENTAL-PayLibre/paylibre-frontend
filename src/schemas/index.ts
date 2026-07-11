@@ -8,10 +8,6 @@ export const SignupSchema = z.object({
   phone: z.string().min(1, { message: 'Phone number is required' }).regex(/^\d+$/, {
     message: 'Phone number must contain only digits',
   }),
-  settlementBankName: z.string().min(1, { message: 'Bank Name is required' }),
-  settlementAccountNumber: z.string().length(10, { message: 'Account Number must be 10 digits' }).regex(/^\d+$/, {
-    message: 'Account Number must contain only digits',
-  }),
   password: z
     .string()
     .min(8, { message: 'Password must be at least 8 characters' })
@@ -21,6 +17,14 @@ export const SignupSchema = z.object({
 }).refine((data) => data.password === data.confirmPassword, {
   message: 'Passwords do not match',
   path: ['confirmPassword'],
+});
+
+export const SettlementSchema = z.object({
+  bankName: z.string().min(1, { message: 'Please select your bank' }),
+  accountNumber: z
+    .string()
+    .length(10, { message: 'Account Number must be 10 digits' })
+    .regex(/^\d+$/, { message: 'Account Number must contain only digits' }),
 });
 
 export const LoginSchema = z.object({

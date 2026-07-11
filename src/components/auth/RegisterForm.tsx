@@ -9,15 +9,6 @@ import * as z from 'zod';
 import { useSignup } from '@/api/auth';
 import { SignupSchema } from '@/schemas';
 
-const BANK_CODES: Record<string, string> = {
-  'Access Bank': '044',
-  GTBank: '058',
-  'Zenith Bank': '057',
-  'First Bank': '011',
-  UBA: '033',
-  'Fidelity Bank': '070',
-};
-
 type SignupFormData = z.infer<typeof SignupSchema>;
 
 export function Field({
@@ -84,36 +75,6 @@ export function Field({
   );
 }
 
-function LabeledSelect({
-  placeholder,
-  options,
-  error,
-  registration,
-}: {
-  placeholder: string;
-  options: string[];
-  error?: string;
-  registration: UseFormRegisterReturn;
-}) {
-  return (
-    <div className='flex flex-col gap-1.5 animate-fade-in'>
-      <select
-        className={`border rounded-lg px-3 py-2.5 text-base outline-none w-full bg-transparent transition-all duration-200 text-foreground
-                   ${error ? 'border-pl-red' : 'border-pl-border focus:border-pl-blue'}`}
-        {...registration}
-      >
-        <option value=''>{placeholder}</option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-      {error && <p className='text-xs text-pl-red'>{error}</p>}
-    </div>
-  );
-}
-
 export default function RegisterForm() {
   const signup = useSignup();
 
@@ -127,12 +88,7 @@ export default function RegisterForm() {
 
   const onSubmit = (data: SignupFormData) => {
     const { confirmPassword, ...payload } = data;
-    const settlementBankCode = BANK_CODES[payload.settlementBankName] || '';
-
-    signup.mutate({
-      ...payload,
-      settlementBankCode,
-    });
+    signup.mutate(payload);
   };
 
   return (
@@ -176,24 +132,6 @@ export default function RegisterForm() {
               registration={register('phone')}
             />
           </div>
-          <LabeledSelect
-            placeholder='Select your primary bank'
-            options={[
-              'Access Bank',
-              'GTBank',
-              'Zenith Bank',
-              'First Bank',
-              'UBA',
-              'Fidelity Bank',
-            ]}
-            error={errors.settlementBankName?.message}
-            registration={register('settlementBankName')}
-          />
-          <Field
-            placeholder='Account Number'
-            error={errors.settlementAccountNumber?.message}
-            registration={register('settlementAccountNumber')}
-          />
           <Field
             placeholder='Create Password'
             type='password'

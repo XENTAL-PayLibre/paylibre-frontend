@@ -4,9 +4,6 @@ export interface RegisterPayload {
   schoolName: string;
   officialEmail: string;
   phone: string;
-  settlementBankName: string;
-  settlementBankCode: string;
-  settlementAccountNumber: string;
   password: string;
 }
 
@@ -16,9 +13,7 @@ export interface RegisterResponse {
   officialEmail: string;
   phone: string;
   status: string;
-  settlementBankName: string;
-  settlementBankCode: string;
-  settlementAccountNumber: string;
+  settlementConfigured: boolean;
 }
 
 export interface LoginPayload {
@@ -57,9 +52,24 @@ export interface SchoolInfo {
   officialEmail: string;
   phone: string;
   status: string;
-  settlementBankName: string;
-  settlementAccountNumber: string;
-  settlementAccountName: string;
+  settlementBankName: string | null;
+  settlementAccountNumber: string | null;
+  settlementAccountName: string | null;
+  settlementConfigured: boolean;
+  joinCode?: string | null;
+}
+
+/** GET /api/v1/banks */
+export interface Bank {
+  name: string;
+  code: string;
+}
+
+/** PUT /api/v1/schools/settlement */
+export interface UpdateSettlementPayload {
+  bankName: string;
+  bankCode: string;
+  accountNumber: string;
 }
 
 export interface UserMeResponse {
