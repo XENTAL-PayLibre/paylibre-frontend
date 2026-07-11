@@ -44,7 +44,7 @@ jobs:
           context: .
           push: true
           build-args: |
-            NEXT_PUBLIC_API_BASE_URL=${{ steps.env.outputs.api }}
+            NEXT_PUBLIC_API_URL=${{ steps.env.outputs.api }}
           tags: |
             ${{ env.IMAGE }}:sha-${{ github.sha }}
             ${{ env.IMAGE }}:${{ steps.env.outputs.moving }}

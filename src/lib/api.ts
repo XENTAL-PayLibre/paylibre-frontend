@@ -3,7 +3,7 @@
 // SameSite=None cookies, so local dev against staging works out of the box.
 
 export const API_BASE_URL = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://paylibre.staging.xental.online"
+  process.env.NEXT_PUBLIC_API_URL ?? "https://paylibre.staging.xental.online"
 ).replace(/\/$/, "");
 
 /** fetch wrapper that targets the API and always includes the session cookie. */

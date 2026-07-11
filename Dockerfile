@@ -19,8 +19,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Public API base URL is baked in at build time (NEXT_PUBLIC_*).
-ARG NEXT_PUBLIC_API_BASE_URL
-ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+# Must match the name the app reads (getApiBaseUrl / proxy route): NEXT_PUBLIC_API_URL.
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
 # Install pnpm for the build step
 RUN npm install -g pnpm
