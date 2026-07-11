@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Search, Upload, Plus, X, Copy, CheckCheck } from 'lucide-react';
-import StatusBadge from '@/components/StatusBadge';
+import StatusBadge from '@/components/dashboard/StatusBadge';
 
 const STUDENTS = [
   { admNo: 'ADM001', name: 'Chinonso Okeke',   class: 'SS1', guardian: 'Mr. Okeke',    account: '8061762007', status: 'Paid' as const },

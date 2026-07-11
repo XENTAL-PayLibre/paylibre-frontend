@@ -1,6 +1,6 @@
 import { Download, Search } from 'lucide-react';
-import StatusBadge from '@/components/StatusBadge';
-import StatCard from '@/components/StatCard';
+import StatusBadge from '@/components/dashboard/StatusBadge';
+import StatCard from '@/components/dashboard/StatCard';
 import { DollarSign, TrendingUp, Users } from 'lucide-react';
 
 const PAYMENTS = [

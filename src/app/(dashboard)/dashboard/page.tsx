@@ -1,6 +1,9 @@
+'use client';
+
 import { DollarSign, Users, CheckCircle, AlertCircle, Download } from 'lucide-react';
-import StatCard from '@/components/StatCard';
-import StatusBadge from '@/components/StatusBadge';
+import StatCard from '@/components/dashboard/StatCard';
+import StatusBadge from '@/components/dashboard/StatusBadge';
+import { useMe } from '@/api/auth';
 
 const RECENT_PAYMENTS = [
   { name: 'Chinonso Okeke', class: 'SS1', fee: 'Tuition Fee', amount: '₦30,200', account: '8061762007', date: '30-04-2026', status: 'Paid' as const },
@@ -14,12 +17,16 @@ const CHART_BARS = [65, 45, 80, 55, 90, 40, 70, 85, 50, 75, 60, 95];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 export default function DashboardPage() {
+  const { data } = useMe();
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-xl font-bold" style={{ color: 'var(--pl-text)' }}>Dashboard</h1>
-          <p className="text-sm mt-0.5" style={{ color: 'var(--pl-text-secondary)' }}>Welcome back, St. Benedict Academy</p>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--pl-text-secondary)' }}>
+            Welcome back, {data?.school?.name || 'St. Benedict Academy'}
+          </p>
         </div>
         <button
           className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-white"
