@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, Bell, Search, User } from 'lucide-react';
+import { Menu, Bell, Search } from 'lucide-react';
 import Sidebar from './Sidebar';
+import ProfileDropdown from './ProfileDropdown';
 
 export default function DashboardShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ background: 'var(--pl-bg)' }}>
+    <div className="flex h-screen overflow-hidden bg-pl-bg">
       {/* Desktop sidebar */}
       <div className="hidden lg:block">
         <Sidebar />
@@ -24,34 +25,33 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         </div>
       )}
 
-      <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden relative">
         {/* Top bar */}
-        <header className="flex items-center justify-between bg-white border-b px-4 py-3" style={{ borderColor: 'var(--pl-border)' }}>
+        <header className="flex items-center justify-between bg-white border-b px-4 py-3 border-pl-border">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setOpen(true)}
               className="lg:hidden p-1.5 rounded-lg"
               aria-label="Open menu"
             >
-              <Menu className="w-5 h-5" style={{ color: 'var(--pl-text-secondary)' }} />
+              <Menu className="w-5 h-5 text-pl-text-secondary" />
             </button>
-            <div className="hidden sm:flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border" style={{ borderColor: 'var(--pl-border)' }}>
-              <Search className="w-4 h-4" style={{ color: 'var(--pl-text-secondary)' }} />
+            <div className="hidden sm:flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border border-pl-border">
+              <Search className="w-4 h-4 text-pl-text-secondary" />
               <input
                 type="text"
                 placeholder="Search..."
-                className="bg-transparent text-sm outline-none w-48"
-                style={{ color: 'var(--pl-text)' }}
+                className="bg-transparent text-sm outline-none w-48 text-pl-text"
               />
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <button className="p-2 rounded-lg hover:bg-gray-50">
-              <Bell className="w-5 h-5" style={{ color: 'var(--pl-text-secondary)' }} />
+              <Bell className="w-5 h-5 text-pl-text-secondary" />
             </button>
-            <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'var(--pl-blue-light)' }}>
-              <User className="w-4 h-4" style={{ color: 'var(--pl-blue)' }} />
-            </div>
+            
+            {/* User Profile dropdown component */}
+            <ProfileDropdown />
           </div>
         </header>
 
