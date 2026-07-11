@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Plus, Search, X, MoreVertical } from 'lucide-react';
-import StatusBadge from '@/components/StatusBadge';
-import StatCard from '@/components/StatCard';
+import StatusBadge from '@/components/dashboard/StatusBadge';
+import StatCard from '@/components/dashboard/StatCard';
 import { DollarSign, TrendingUp, AlertCircle } from 'lucide-react';
 
 const FEES = [
