@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             href="/register"
-            className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-opacity hover:opacity-90"
+            className="hover-bounce px-4 py-2 rounded-lg text-sm font-medium text-white"
             style={{ background: 'var(--pl-blue)' }}
           >
             Get Started Free
@@ -56,7 +56,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link href="/register" className="text-sm font-medium text-center py-2 rounded-lg text-white mt-2" style={{ background: 'var(--pl-blue)' }}>
+          <Link href="/register" className="hover-bounce text-sm font-medium text-center py-2 rounded-lg text-white mt-2" style={{ background: 'var(--pl-blue)' }}>
             Get Started Free
           </Link>
         </div>

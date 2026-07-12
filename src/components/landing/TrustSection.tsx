@@ -1,4 +1,5 @@
 import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
+import Reveal from './Reveal';
 
 const CARDS = [
   {
@@ -35,14 +36,16 @@ export default function TrustSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {CARDS.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border bg-white p-6 text-center flex flex-col items-center" style={{ borderColor: 'var(--pl-border)' }}>
-              <span className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--pl-blue-light)' }}>
-                <Icon className="w-5 h-5" style={{ color: 'var(--pl-blue)' }} />
-              </span>
-              <h3 className="font-semibold text-base mb-2" style={{ color: 'var(--pl-text)' }}>{title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--pl-text-secondary)' }}>{desc}</p>
-            </div>
+          {CARDS.map(({ icon: Icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 100}>
+              <div className="hover-card rounded-2xl border bg-white p-6 text-center flex flex-col items-center h-full" style={{ borderColor: 'var(--pl-border)' }}>
+                <span className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--pl-blue-light)' }}>
+                  <Icon className="w-5 h-5" style={{ color: 'var(--pl-blue)' }} />
+                </span>
+                <h3 className="font-semibold text-base mb-2" style={{ color: 'var(--pl-text)' }}>{title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pl-text-secondary)' }}>{desc}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

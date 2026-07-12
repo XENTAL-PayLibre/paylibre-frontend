@@ -13,7 +13,7 @@ export default function CTA() {
         </p>
         <Link
           href="/register"
-          className="flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          className="hover-bounce flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white"
           style={{ background: 'var(--pl-blue)' }}
         >
           Get Started Free <ArrowRight className="w-4 h-4" />

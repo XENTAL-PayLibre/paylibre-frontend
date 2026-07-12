@@ -1,3 +1,5 @@
+import Reveal from './Reveal';
+
 const STEPS = [
   {
     step: '01',
@@ -30,12 +32,12 @@ export default function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-          {STEPS.map(({ step, title, desc }) => (
-            <div key={step}>
+          {STEPS.map(({ step, title, desc }, i) => (
+            <Reveal key={step} delay={i * 120}>
               <span className="text-4xl font-bold block mb-4" style={{ color: 'var(--pl-border)' }}>{step}</span>
               <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--pl-text)' }}>{title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--pl-text-secondary)' }}>{desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

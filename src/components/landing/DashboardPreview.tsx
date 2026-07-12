@@ -18,7 +18,7 @@ const BARS = [45, 60, 40, 75, 55, 90, 65];
 
 export default function DashboardPreview() {
   return (
-    <div className="rounded-2xl border bg-white overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08),0_20px_50px_rgba(0,77,187,0.10)]" style={{ borderColor: 'var(--pl-border)' }}>
+    <div className="hover-card rounded-2xl border bg-white overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08),0_20px_50px_rgba(0,77,187,0.10)]" style={{ borderColor: 'var(--pl-border)' }}>
       {/* Browser chrome */}
       <div className="flex items-center gap-4 px-4 py-3 border-b" style={{ borderColor: 'var(--pl-border)', background: 'var(--pl-bg)' }}>
         <div className="flex items-center gap-1.5">

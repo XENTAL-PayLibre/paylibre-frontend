@@ -28,7 +28,7 @@ export default function FAQ() {
         </h2>
         <div className="flex flex-col gap-3">
           {FAQS.map(({ q, a }) => (
-            <details key={q} className="group border rounded-xl px-5 py-4" style={{ borderColor: 'var(--pl-border)' }}>
+            <details key={q} className="group hover-card-flat border rounded-xl px-5 py-4 bg-white" style={{ borderColor: 'var(--pl-border)' }}>
               <summary className="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-medium" style={{ color: 'var(--pl-text)' }}>
                 {q}
                 <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" style={{ color: 'var(--pl-text-secondary)' }} />

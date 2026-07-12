@@ -3,7 +3,7 @@ import { Landmark, BarChart3 } from 'lucide-react';
 function Card({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="w-full max-w-sm rounded-2xl border bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_16px_40px_rgba(0,77,187,0.08)]"
+      className="hover-card w-full max-w-sm rounded-2xl border bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_16px_40px_rgba(0,77,187,0.08)]"
       style={{ borderColor: 'var(--pl-border)' }}
     >
       {children}
