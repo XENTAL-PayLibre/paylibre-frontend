@@ -8,6 +8,7 @@ import {
   FileText,
   CreditCard,
   BarChart2,
+  Code2,
   Settings,
   X,
   LogOut,
@@ -21,6 +22,7 @@ const NAV_ITEMS = [
   { label: 'Fees', href: '/fees', icon: FileText },
   { label: 'Payments', href: '/payments', icon: CreditCard },
   { label: 'Reports', href: '/reports', icon: BarChart2 },
+  { label: 'Developers', href: '/developers', icon: Code2 },
 ];
 
 export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
