@@ -18,9 +18,34 @@ export const API_ENDPOINTS = {
     SETTLEMENT: '/schools/settlement',
   },
   BANKS: '/banks',
-  // Add other resource endpoints here as paylibre evolves, e.g.:
-  // STUDENTS: {
-  //   BASE: '/students',
-  //   ONE: (id: string) => `/students/${id}`,
-  // }
+  STUDENTS: {
+    BASE: '/students',
+    ONE: (id: string) => `/students/${id}`,
+    VIRTUAL_ACCOUNT: (id: string) => `/students/${id}/virtual-account`,
+    VIRTUAL_ACCOUNT_SEND: (id: string) => `/students/${id}/virtual-account/send`,
+    IMPORT: '/students/import',
+  },
+  FEES: {
+    BASE: '/fees',
+    SUMMARY: '/fees/summary',
+    ONE: (id: string) => `/fees/${id}`,
+  },
+  FEE_CATEGORIES: {
+    BASE: '/fee-categories',
+    ONE: (id: string) => `/fee-categories/${id}`,
+  },
+  CLASSES: {
+    BASE: '/classes',
+    ONE: (id: string) => `/classes/${id}`,
+  },
+  PAYMENTS: {
+    BASE: '/payments',
+  },
+  DASHBOARD: {
+    OVERVIEW: '/dashboard/overview',
+  },
+  REPORTS: {
+    OUTSTANDING: '/reports/outstanding',
+    COLLECTIONS: '/reports/collections',
+  },
 } as const;
