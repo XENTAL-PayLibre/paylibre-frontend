@@ -1,23 +1,20 @@
+import Reveal from './Reveal';
+
 const STEPS = [
   {
     step: '01',
-    title: 'School registers',
-    desc: 'Your school creates a PayLibre account and completes a quick setup. Takes less than 5 minutes.',
+    title: 'Every student gets a dedicated account',
+    desc: "Not shared, not shuffled — a real, unique account number tied to that student for as long as they're enrolled.",
   },
   {
     step: '02',
-    title: 'Students are onboarded',
-    desc: 'Upload your student roster via CSV or add students manually. Each student is assigned a dedicated NUBAN instantly.',
+    title: 'Parents pay however works for them',
+    desc: 'Bank app, transfer, one lump sum or spread across weeks. It all lands in the same place.',
   },
   {
     step: '03',
-    title: 'Parents pay from any bank',
-    desc: 'Parents transfer fees to their child\'s unique account number from any Nigerian bank — GTB, Access, Zenith, OPay, Kuda, anywhere.',
-  },
-  {
-    step: '04',
-    title: 'Bursar sees it live',
-    desc: 'The moment a payment lands, it\'s matched to the student and the dashboard updates. Paid, Partial, or Due — always accurate.',
+    title: 'The ledger updates itself',
+    desc: 'No matching, no spreadsheets. The moment money lands, Paylibre knows who paid, what for, and how much is left.',
   },
 ];
 
@@ -26,35 +23,21 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-20" style={{ background: 'var(--pl-bg)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: 'var(--pl-blue-light)', color: 'var(--pl-blue)' }}>
-            How It Works
+          <span className="text-xs font-semibold tracking-wide uppercase mb-4 block" style={{ color: 'var(--pl-blue)' }}>
+            How it works
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--pl-text)' }}>
-            Up and running in minutes
+          <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--pl-text)' }}>
+            One account per student. Zero guesswork.
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--pl-text-secondary)' }}>
-            No complex integrations. No IT department needed. Just sign up and go.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           {STEPS.map(({ step, title, desc }, i) => (
-            <div key={step} className="relative">
-              {/* Connector line */}
-              {i < STEPS.length - 1 && (
-                <div className="hidden lg:block absolute top-6 left-full w-full h-px z-0" style={{ background: 'var(--pl-border)' }} />
-              )}
-              <div className="bg-white rounded-xl border p-6 relative z-10" style={{ borderColor: 'var(--pl-border)' }}>
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-sm font-bold text-white"
-                  style={{ background: 'var(--pl-blue)' }}
-                >
-                  {step}
-                </div>
-                <h3 className="font-semibold mb-2" style={{ color: 'var(--pl-text)' }}>{title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--pl-text-secondary)' }}>{desc}</p>
-              </div>
-            </div>
+            <Reveal key={step} delay={i * 120}>
+              <span className="text-4xl font-bold block mb-4" style={{ color: 'var(--pl-border)' }}>{step}</span>
+              <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--pl-text)' }}>{title}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--pl-text-secondary)' }}>{desc}</p>
+            </Reveal>
           ))}
         </div>
       </div>

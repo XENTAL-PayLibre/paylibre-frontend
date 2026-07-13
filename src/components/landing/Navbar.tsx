@@ -6,8 +6,8 @@ import { Menu, X, Landmark } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Features', href: '#features' },
-  { label: 'How it Works', href: '#how-it-works' },
-  { label: 'Login', href: '/login' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'FAQ', href: '#faq' },
 ];
 
 export default function Navbar() {
@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Landmark className="w-5 h-5" style={{ color: 'var(--pl-blue)' }} />
-          <span className="text-base font-bold" style={{ color: 'var(--pl-blue)' }}>PayLibre</span>
+          <span className="text-base font-bold" style={{ color: 'var(--pl-text)' }}>Paylibre</span>
         </Link>
 
         {/* Desktop links */}
@@ -35,10 +35,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             href="/register"
-            className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-opacity hover:opacity-90"
+            className="hover-bounce px-4 py-2 rounded-lg text-sm font-medium text-white"
             style={{ background: 'var(--pl-blue)' }}
           >
-            Register School
+            Get Started Free
           </Link>
         </div>
 
@@ -56,8 +56,8 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link href="/register" className="text-sm font-medium text-center py-2 rounded-lg text-white mt-2" style={{ background: 'var(--pl-blue)' }}>
-            Register School
+          <Link href="/register" className="hover-bounce text-sm font-medium text-center py-2 rounded-lg text-white mt-2" style={{ background: 'var(--pl-blue)' }}>
+            Get Started Free
           </Link>
         </div>
       )}

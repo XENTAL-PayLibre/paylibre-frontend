@@ -12,16 +12,17 @@ import {
   Settings,
   X,
   LogOut,
+  GraduationCap,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLogout } from '@/api/auth';
-
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-  { label: 'Students', href: '/students', icon: Users },
-  { label: 'Fees', href: '/fees', icon: FileText },
-  { label: 'Payments', href: '/payments', icon: CreditCard },
-  { label: 'Reports', href: '/reports', icon: BarChart2 },
+  { label: 'Students', href: '/dashboard/students', icon: Users },
+  { label: 'Classes', href: '/dashboard/classes', icon: GraduationCap },
+  { label: 'Fees', href: '/dashboard/fees', icon: FileText },
+  { label: 'Payments', href: '/dashboard/payments', icon: CreditCard },
+  { label: 'Reports', href: '/dashboard/reports', icon: BarChart2 },
   { label: 'Developers', href: '/developers', icon: Code2 },
 ];
 
