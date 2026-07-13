@@ -7,7 +7,7 @@ import { useMe } from '@/api/auth';
 export default function ProfileDropdown() {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { data } = useMe();
+  const { data, isLoading } = useMe();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -21,7 +21,17 @@ export default function ProfileDropdown() {
     };
   }, []);
 
-  if (!data) return null;
+  if (isLoading || !data) {
+    return (
+      <div className="flex items-center gap-2 select-none animate-pulse">
+        <div className="w-8 h-8 rounded-full bg-gray-200 shrink-0" />
+        <div className="hidden sm:flex flex-col text-left">
+          <div className="w-28 h-4 bg-gray-200 rounded" />
+        </div>
+        <ChevronDown className="w-4 h-4 text-pl-text-secondary" />
+      </div>
+    );
+  }
 
   return (
     <div className="relative" ref={dropdownRef}>
