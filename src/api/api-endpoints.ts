@@ -17,6 +17,10 @@ export const API_ENDPOINTS = {
     CURRENT: '/schools/current',
     SETTLEMENT: '/schools/settlement',
   },
+  API_KEYS: {
+    BASE: '/api-keys',
+    ONE: (id: string) => `/api-keys/${id}`,
+  },
   BANKS: '/banks',
   STUDENTS: {
     BASE: '/students',

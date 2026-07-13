@@ -8,6 +8,7 @@ import {
   FileText,
   CreditCard,
   BarChart2,
+  Code2,
   Settings,
   X,
   LogOut,
@@ -15,7 +16,6 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLogout } from '@/api/auth';
-
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Students', href: '/dashboard/students', icon: Users },
@@ -23,6 +23,7 @@ const NAV_ITEMS = [
   { label: 'Fees', href: '/dashboard/fees', icon: FileText },
   { label: 'Payments', href: '/dashboard/payments', icon: CreditCard },
   { label: 'Reports', href: '/dashboard/reports', icon: BarChart2 },
+  { label: 'Developers', href: '/developers', icon: Code2 },
 ];
 
 export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
